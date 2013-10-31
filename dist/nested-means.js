@@ -93,9 +93,61 @@ nestedMeans.rounded = function (data, ranges) {
     return result;
 };
 
+nestedMeans.scale = require('./scale')(nestedMeans);
+nestedMeans.scaleRounded = require('./scale')(nestedMeans.rounded);
+
 module.exports = nestedMeans;
 
-},{"./binarySearch":1}],"nested-means":[function(require,module,exports){
+},{"./binarySearch":1,"./scale":4}],"nested-means":[function(require,module,exports){
 module.exports=require('THm4GM');
+},{}],4:[function(require,module,exports){
+module.exports = function (nestedMeans) {
+    return function (splits) {
+        var lg = Math.log(splits) / Math.log(2);
+        if (lg !== Math.round(lg)) {
+            throw new Error("splits should be a power of two");
+        }
+
+        var ranges = [];
+        var output = [];
+        var range;
+
+        function scale(x) {
+            var category = ranges.length;
+            while (category > 0) {
+                if (x < ranges[category] && x >= ranges[category - 1]) {
+                    return range[category - 1];
+                }
+                category -= 1;
+            }
+            return range[category];
+        }
+
+        scale.range = function (x) {
+            if (!arguments.length) {
+                return range;
+            }
+
+            if (x.length !== splits) {
+                throw new Error("The number of elements in the range should equal the number of splits");
+            }
+
+            range = x;
+            return scale;
+        };
+
+        scale.domain = function (x) {
+            if (!arguments.length) {
+                return ranges;
+            }
+
+            ranges = nestedMeans(x, splits);
+            return scale;
+        };
+
+        return scale;
+    };
+};
+
 },{}]},{},["THm4GM"])
 ;
