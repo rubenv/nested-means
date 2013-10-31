@@ -37,9 +37,6 @@ describe 'Nested means', ->
     it 'Calculates a degenerate range for 1-length data', ->
         assert.deepEqual(nestedMeans([1], 1), [1, 1])
 
-    it 'Calculates only distinct ranges', ->
-        assert.deepEqual(nestedMeans([1], 4), [1, 1])
-
     it 'Calculates a correct range for 2', ->
         assert.deepEqual(nestedMeans([1, 2, 3], 2), [1, 2, 3])
 

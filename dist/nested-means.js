@@ -78,10 +78,6 @@ var nestedMeans = function (data, ranges) {
         return [];
     }
 
-    if (data.length === 1) {
-        return [data[0], data[0]];
-    }
-
     // Sort the array
     data.sort();
 
