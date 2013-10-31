@@ -111,7 +111,6 @@ module.exports = function (nestedMeans) {
         }
 
         var ranges = [];
-        var output = [];
         var range;
 
         function scale(x) {
