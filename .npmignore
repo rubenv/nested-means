@@ -1,0 +1,6 @@
+.jshintrc
+.npmignore
+Gruntfile.coffee
+test
+dist
+bower.json

@@ -1,0 +1,23 @@
+{
+  "name": "nested-means",
+  "main": "nested-means.js",
+  "version": "0.0.0",
+  "authors": [
+    "Ruben Vermeersch <ruben@rocketeer.be>"
+  ],
+  "description": "Nested means calculation",
+  "keywords": [
+    "mean",
+    "statistics"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "Gruntfile.coffee",
+    "node_modules",
+    "bower_components",
+    "test",
+    "lib",
+    "package.json"
+  ]
+}
