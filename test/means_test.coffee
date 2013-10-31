@@ -52,6 +52,9 @@ describe 'Nested means', ->
     it 'Calculates a linear scale for linear values', ->
         assert.deepEqual(nestedMeans([1, 2, 3, 4], 4), [1, 1.5, 2.5, 3.5, 5])
 
+    it 'Correctly sorts items', ->
+        assert.deepEqual(nestedMeans([9, 80], 1), [9, 81])
+
 describe 'Nested means (rounded)', ->
     it 'Calculates a correct range for 4', ->
         assert.deepEqual(nestedMeans.rounded([1, 2, 3, 4, 5], 4), [1, 2, 3, 4, 6])
